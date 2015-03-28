@@ -40,6 +40,7 @@ import java.util.*;
  * @param <V> Vertices
  * @param <E> Edges
  * @author Adam Gouge
+ * @author Olivier Bonin
  */
 public class Dijkstra<V extends VDijkstra, E extends EdgeSPT>
         extends GraphSearchAlgorithm<V, E> {
@@ -138,10 +139,12 @@ public class Dijkstra<V extends VDijkstra, E extends EdgeSPT>
         V v = Graphs.getOppositeVertex(graph, e, u);
         // Get the weight.
         double uvWeight = graph.getEdgeWeight(e);
+        // Get the deadWeight
+        double uvDeadWeight = e.getDeadWeight();
         // If a smaller distance estimate is available, make the necessary
         // updates.
         if (v.getDistance() > u.getDistance() + uvWeight) {
-            shortestPathSoFarUpdate(startNode, u, v, uvWeight, e, queue);
+            shortestPathSoFarUpdate(startNode, u, v, uvWeight, uvDeadWeight, e, queue);
         } else if (Math.abs(v.getDistance() - (u.getDistance() + uvWeight))
                 < TOLERANCE) {
             multipleShortestPathUpdate(u, v, e);
@@ -155,10 +158,12 @@ public class Dijkstra<V extends VDijkstra, E extends EdgeSPT>
      * @param u        Vertex u
      * @param v        Vertex v
      * @param uvWeight w(u,v)
+     * @param uvDeadWeight
      * @param e        Edge e
      * @param queue    Queue
      */
     protected void shortestPathSoFarUpdate(V startNode, V u, V v, Double uvWeight,
+                                           Double uvDeadWeight,
                                            E e, PriorityQueue<V> queue) {
         // Reset the predecessors and add u as a predecessor
         v.clear();
@@ -166,6 +171,7 @@ public class Dijkstra<V extends VDijkstra, E extends EdgeSPT>
         v.addPredecessorEdge(e);
         // Set the distance
         v.setDistance(u.getDistance() + uvWeight);
+        v.setLength(u.getLength() + uvDeadWeight);
         largestDistanceSoFar = v.getDistance();
         // Update the queue.
         queue.remove(v);
@@ -259,7 +265,7 @@ public class Dijkstra<V extends VDijkstra, E extends EdgeSPT>
      * @param target Target
      * @return The distance from the source to the target.
      */
-    public double oneToOne(V source, final V target) {
+    public DistanceLength oneToOne(V source, final V target) {
         if (source == null || !graph.containsVertex(source)) {
             throw new IllegalArgumentException(
                     "Source vertex not found.");
@@ -272,7 +278,8 @@ public class Dijkstra<V extends VDijkstra, E extends EdgeSPT>
                 // So just set the distance.
                 source.setSource();
                 // and return it.
-                return source.getDistance();
+                DistanceLength dl = new DistanceLength(source.getDistance(), source.getLength());
+                return dl;
             } else {
                 // Otherwise we have to search.
                 new Dijkstra<V, E>(graph) {
@@ -287,7 +294,8 @@ public class Dijkstra<V extends VDijkstra, E extends EdgeSPT>
                     }
                 }.calculate(source);
                 // Return the distance to the target.
-                return target.getDistance();
+                DistanceLength dl = new DistanceLength(target.getDistance(), target.getLength());
+                return dl;
             }
         }
     }
@@ -300,16 +308,16 @@ public class Dijkstra<V extends VDijkstra, E extends EdgeSPT>
      * @param targets Targets
      * @return A map of distances from the source keyed by the target vertex.
      */
-    public Map<V, Double> oneToMany(V source, final Set<V> targets) {
+    public Map<V, DistanceLength> oneToMany(V source, final Set<V> targets) {
         if (targets.isEmpty()) {
             throw new IllegalArgumentException(
                     "Please specify at least one target.");
         } else {
-            final Map<V, Double> distances = new HashMap<V, Double>();
+            final Map<V, DistanceLength> distances = new HashMap<V, DistanceLength>();
 
             if (targets.size() == 1) {
                 V target = targets.iterator().next();
-                double distance = oneToOne(source, target);
+                DistanceLength distance = oneToOne(source, target);
                 distances.put(target, distance);
             } else {
 
@@ -329,7 +337,8 @@ public class Dijkstra<V extends VDijkstra, E extends EdgeSPT>
                             // If u is  a target, then remove it from the
                             // remaining targets and record its distance.
                             if (remainingTargets.remove(u)) {
-                                distances.put(u, u.getDistance());
+                                DistanceLength dl = new DistanceLength(u.getDistance(), u.getLength());
+                                distances.put(u, dl);
                             }
                             // If there are no more targets, then stop the search.
                             if (remainingTargets.isEmpty()) {
@@ -354,7 +363,7 @@ public class Dijkstra<V extends VDijkstra, E extends EdgeSPT>
      * @param target  Target
      * @return A map of the distance to the target keyed by the source vertex.
      */
-    public Map<V, Double> manyToOne(final Set<V> sources, V target) {
+    public Map<V, DistanceLength> manyToOne(final Set<V> sources, V target) {
         if (sources.isEmpty()) {
             throw new IllegalArgumentException(
                     "Please specify at least one source.");
@@ -385,16 +394,16 @@ public class Dijkstra<V extends VDijkstra, E extends EdgeSPT>
      * @return A map of maps of distances. The first V is keyed by the source
      *         and the second V is keyed by the target.
      */
-    public Map<V, Map<V, Double>> manyToMany(final Set<V> sources,
+    public Map<V, Map<V, DistanceLength>> manyToMany(final Set<V> sources,
                                              final Set<V> targets) {
         if (sources.isEmpty()) {
             throw new IllegalArgumentException(
                     "Please specify at least one source.");
         } else {
-            final Map<V, Map<V, Double>> distances =
-                    new HashMap<V, Map<V, Double>>();
+            final Map<V, Map<V, DistanceLength>> distances =
+                    new HashMap<V, Map<V, DistanceLength>>();
             for (V source : sources) {
-                Map<V, Double> oneToMany = oneToMany(source, targets);
+                Map<V, DistanceLength> oneToMany = oneToMany(source, targets);
                 distances.put(source, oneToMany);
             }
             return distances;

@@ -30,6 +30,7 @@ package org.javanetworkanalyzer.data;
  * @param <V> Vertex
  *
  * @author Adam Gouge
+ * @author Olivier Bonin
  */
 public class VBFS<V extends VBFS, E> extends VPredImpl<V, E> implements VDist<Integer> {
 
@@ -37,12 +38,16 @@ public class VBFS<V extends VBFS, E> extends VPredImpl<V, E> implements VDist<In
      * The default distance assigned to all nodes at the beginning of the BFS
      * algorithm.
      */
-    public static final int DEFAULT_DISTANCE = -1;
+    public static final int DEFAULT_DISTANCE = -1;    
+    public static final int DEFAULT_LENGTH = -1;
+
     /**
      * Number of steps on a shortest path from a certain source leading to this
      * node (BFS).
      */
     private int distance = DEFAULT_DISTANCE;
+    private int length = DEFAULT_DISTANCE;
+
 
     /**
      * Constructor: sets the id.
@@ -62,6 +67,16 @@ public class VBFS<V extends VBFS, E> extends VPredImpl<V, E> implements VDist<In
     public void setDistance(Integer newDistance) {
         distance = newDistance;
     }
+    
+    @Override
+    public Integer getLength() {
+        return length;
+    }
+
+    @Override
+    public void setLength(Integer newLength) {
+        length = newLength;
+    }
 
     /**
      * Clears the predecessor list and resets the distance to the default
@@ -73,6 +88,7 @@ public class VBFS<V extends VBFS, E> extends VPredImpl<V, E> implements VDist<In
         super.clear();
         // Reset the distance to the default distance.
         distance = DEFAULT_DISTANCE;
+        length = DEFAULT_LENGTH;
     }
 
     /**
@@ -84,5 +100,6 @@ public class VBFS<V extends VBFS, E> extends VPredImpl<V, E> implements VDist<In
         super.clear();
         // Set the distance to zero.
         distance = 0;
+        length = 0;
     }
 }

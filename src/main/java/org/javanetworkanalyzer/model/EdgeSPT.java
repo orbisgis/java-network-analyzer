@@ -5,10 +5,13 @@ package org.javanetworkanalyzer.model;
  * {@link org.javanetworkanalyzer.alg.TraversalAlg}.
  *
  * @author Adam Gouge
+ * @author Olivier Bonin
  */
 public interface EdgeSPT<E extends EdgeSPT> {
 
     E getBaseGraphEdge();
 
     void setBaseGraphEdge(E e);
+    
+    double getDeadWeight();
 }
