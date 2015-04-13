@@ -40,11 +40,13 @@ import org.slf4j.LoggerFactory;
  * unweighted; directed, reversed or undirected).
  *
  * @author Adam Gouge
+ * @author Olivier Bonin
  */
 public class Graph2DGraphCreatorTest {
 
     private static final String FILENAME = "./files/graph2D.edges.csv";
     private static final String WEIGHT = "length";
+    private static final String DEADWEIGHT = "speed";
     private static final Logger LOGGER =
             LoggerFactory.getLogger(Graph2DGraphCreatorTest.class);
 
@@ -113,7 +115,8 @@ public class Graph2DGraphCreatorTest {
                     orientation,
                     VWCent.class,
                     Edge.class,
-                    WEIGHT).loadGraph();
+                    WEIGHT,
+                    DEADWEIGHT).loadGraph();
         } else {
             graph = new GraphCreator<VUCent, Edge>(
                     FILENAME,

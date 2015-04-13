@@ -43,6 +43,7 @@ import org.slf4j.LoggerFactory;
  * Tests weighted and unweighted graph analysis.
  *
  * @author Adam Gouge
+ * @author Olivier Bonin
  */
 public abstract class GraphAnalyzerTest
         extends CentralityTest {
@@ -268,7 +269,8 @@ public abstract class GraphAnalyzerTest
                                             orientation,
                                             VWCent.class,
                                             EdgeCent.class,
-                                            getWeightColumnName()).loadGraph();
+                                            getWeightColumnName(),
+                                            getDeadWeightColumnName()).loadGraph();
         } catch (Exception ex) {
         }
         return null;
@@ -355,6 +357,13 @@ public abstract class GraphAnalyzerTest
      * @return The weight column name.
      */
     protected abstract String getWeightColumnName();
+    
+    /**
+     * Returns the dead weight column name.
+     *
+     * @return The weight column name.
+     */
+    protected abstract String getDeadWeightColumnName();
 
     /**
      * Returns the number of nodes in this graph.

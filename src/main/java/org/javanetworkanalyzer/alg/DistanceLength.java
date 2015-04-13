@@ -17,13 +17,23 @@
 package org.javanetworkanalyzer.alg;
 
 /**
- *
+ * Helper class for the results of shortest paths computations on weighted
+ * graphs.
+ * By convention, the "distance" of a path is computed with the weight, and
+ * the "length" is computed with the dead weight (the dead weight is simply
+ * accumulated along the path but not used in the search). 
+ * 
+ * 
  * @author obonin
  */
 public class DistanceLength {
     private double distance = 0;
     private double length = 0;
     
+    /**
+     * @param d distance (sum of weights)
+     * @param l length (sum of dead weights)
+     */
     public DistanceLength(double d, double l) {
         distance = d;
         length = l;

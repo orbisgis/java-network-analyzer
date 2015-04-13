@@ -73,12 +73,12 @@ public class ExampleGraphTest extends ManuallyCreatedGraphAnalyzerTest {
     @Override
     protected void addWeightedEdges(
             WeightedKeyedGraph<? extends VCent, EdgeCent> graph) {
-        graph.addEdge(1, 2).setWeight(1.2);
-        graph.addEdge(1, 3).setWeight(0.8);
-        graph.addEdge(1, 5).setWeight(1.0);
-        graph.addEdge(5, 2).setWeight(0.3);
-        graph.addEdge(2, 4).setWeight(0.9);
-        graph.addEdge(3, 4).setWeight(1.3);
+        graph.addEdge(1, 2).setWeightAndDeadWeight(1.2);
+        graph.addEdge(1, 3).setWeightAndDeadWeight(0.8);
+        graph.addEdge(1, 5).setWeightAndDeadWeight(1.0);
+        graph.addEdge(5, 2).setWeightAndDeadWeight(0.3);
+        graph.addEdge(2, 4).setWeightAndDeadWeight(0.9);
+        graph.addEdge(3, 4).setWeightAndDeadWeight(1.3);
     }
 
     @Test

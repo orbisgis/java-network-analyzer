@@ -35,8 +35,8 @@ package org.javanetworkanalyzer.data;
 public class VBFS<V extends VBFS, E> extends VPredImpl<V, E> implements VDist<Integer> {
 
     /**
-     * The default distance assigned to all nodes at the beginning of the BFS
-     * algorithm.
+     * The default distance and length assigned to all nodes at the beginning 
+     * of the BFS algorithm.
      */
     public static final int DEFAULT_DISTANCE = -1;    
     public static final int DEFAULT_LENGTH = -1;

@@ -41,4 +41,11 @@ public class EdgeCent extends Edge<EdgeCent> {
         super.setWeight(newWeight);
         return this;
     }
+    
+    @Override
+    public EdgeCent setWeightAndDeadWeight(double newWeight) {
+        super.setWeight(newWeight);
+        super.setDeadWeight(newWeight);
+        return this;
+    }
 }

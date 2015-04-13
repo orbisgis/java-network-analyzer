@@ -26,6 +26,12 @@ package org.javanetworkanalyzer.data;
 
 /**
  * Vertex to be used in the Dijkstra algorithm.
+ * 
+ * Each vertex has 
+ * - a "distance" (sum of the weights of a shortest path starting from a certain
+ * source leading to this node, used by the Dijkstra algorithm)
+ * - a "length" (sum of the dead weights of a shortest path starting from a 
+ * certain source leading to this node, unused by the Dijkstra algorithm).
  *
  * @param <V> Vertex
  *
@@ -37,8 +43,8 @@ public class VDijkstra<V extends VDijkstra, E>
         implements VDist<Double> {
 
     /**
-     * The default distance assigned to all nodes at the beginning of the
-     * Dijkstra algorithm.
+     * The default distance and length assigned to all nodes at the beginning 
+     * of the Dijkstra algorithm.
      */
     public static final Double DEFAULT_DISTANCE = Double.POSITIVE_INFINITY;
     public static final Double DEFAULT_LENGTH = Double.POSITIVE_INFINITY;

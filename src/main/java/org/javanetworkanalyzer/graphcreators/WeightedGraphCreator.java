@@ -48,21 +48,33 @@ public class WeightedGraphCreator<V extends VId, E extends Edge>
      * Weight index.
      */
     protected static int weightFieldIndex = -1;
+    
+    /**
+     * Dead weight column name.
+     */
+    private final String deadWeightField;
+    /**
+     * Dead weight index.
+     */
+    protected static int deadWeightFieldIndex = -1;
 
     /**
      * Initializes a new {@link WeightedGraphCreator}.
      *
      * @param csvFile     CSV file containing the edge information.
      * @param weightField The weight column name.
+     * @param deadWeightField The dead weight column name.
      * @param orientation The desired graph orientation.
      */
     public WeightedGraphCreator(String csvFile,
                                 int orientation,
                                 Class<? extends V> vertexClass,
                                 Class<? extends E> edgeClass,
-                                String weightField) {
+                                String weightField,
+                                String deadWeightField) {
         super(csvFile, orientation, vertexClass, edgeClass);
         this.weightField = weightField;
+        this.deadWeightField = deadWeightField;
     }
 
     @Override
@@ -92,6 +104,9 @@ public class WeightedGraphCreator<V extends VId, E extends Edge>
             } else if (row[i].replace(DOUBLE_QUOTES, EMPTY_STRING)
                     .equals(weightField)) {
                 weightFieldIndex = i;
+            } else if (row[i].replace(DOUBLE_QUOTES, EMPTY_STRING)
+                    .equals(deadWeightField)) {
+                deadWeightFieldIndex = i;
             }
         }
     }
@@ -126,6 +141,9 @@ public class WeightedGraphCreator<V extends VId, E extends Edge>
         double weight = Double.parseDouble(
                 deleteDoubleQuotes(row[weightFieldIndex]));
         edge.setWeight(weight);
+        double deadWeight = Double.parseDouble(
+                deleteDoubleQuotes(row[deadWeightFieldIndex]));
+        edge.setDeadWeight(deadWeight);
         return edge;
     }
 }

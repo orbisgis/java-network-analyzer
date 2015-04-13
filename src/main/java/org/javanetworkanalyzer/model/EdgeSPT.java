@@ -13,5 +13,9 @@ public interface EdgeSPT<E extends EdgeSPT> {
 
     void setBaseGraphEdge(E e);
     
+    /**
+     * The dead weight is specified here, as it is an extension of the jGraphT
+     * data structure.
+     */
     double getDeadWeight();
 }
