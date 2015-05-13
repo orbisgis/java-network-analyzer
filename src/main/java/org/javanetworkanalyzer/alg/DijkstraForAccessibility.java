@@ -35,6 +35,7 @@ import org.jgrapht.Graph;
  * destinations in an {@link AccessibilityAnalyzer}.
  *
  * @author Adam Gouge
+ * @author Olivier Bonin
  */
 // TODO: Enable **multiple** "closest" destinations within a given tolerance.
 public class DijkstraForAccessibility<E extends EdgeSPT> extends Dijkstra<VAccess, E> {
@@ -60,7 +61,8 @@ public class DijkstraForAccessibility<E extends EdgeSPT> extends Dijkstra<VAcces
      */
     @Override
     protected void shortestPathSoFarUpdate(VAccess startNode, VAccess u, VAccess v,
-                                           Double uvWeight, E e, PriorityQueue<VAccess> queue) {
+                                           Double uvWeight, 
+                                           Double uvDeadWeight, E e, PriorityQueue<VAccess> queue) {
         // If the distance from the start node to v (so the distance *from* v
         // *to* the destination represented by the start node in a reversed
         // graph) is less than the distance to any previously found closest
@@ -70,6 +72,6 @@ public class DijkstraForAccessibility<E extends EdgeSPT> extends Dijkstra<VAcces
             v.setDistanceToClosestDestination(distance);
             v.setClosestDestinationId(startNode.getID());
         }
-        super.shortestPathSoFarUpdate(startNode, u, v, uvWeight, e, queue);
+        super.shortestPathSoFarUpdate(startNode, u, v, uvWeight, uvDeadWeight, e, queue);
     }
 }

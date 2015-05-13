@@ -29,13 +29,19 @@ import org.jgrapht.graph.DefaultWeightedEdge;
 
 /**
  * Weighted edge for use in {@link TraversalGraph}.
+ * 
+ * Each edge has a weight, used for shortest paths computation (typically
+ * travel time) and a deadWeight, accumulated but not used (typically edge
+ * length).
  *
  * @author Adam Gouge
+ * @author Olivier Bonin
  */
 public class Edge<E extends Edge> extends DefaultWeightedEdge
         implements EdgeSPT<E>, EdgeID {
 
     private double weight = WeightedGraph.DEFAULT_EDGE_WEIGHT;
+    private double deadWeight = WeightedGraph.DEFAULT_EDGE_WEIGHT;
     private E baseGraphEdge;
     private int id;
     private boolean setID = false;
@@ -52,7 +58,25 @@ public class Edge<E extends Edge> extends DefaultWeightedEdge
     protected double getWeight() {
         return weight;
     }
+    
+    /**
+     * Sets the deadWeight of this edge
+     */
+    public Edge setDeadWeight(double newWeight) {
+        deadWeight = newWeight;
+        return this;
+    }
 
+    public double getDeadWeight() {
+        return deadWeight;
+    }
+
+    public Edge setWeightAndDeadWeight(double newWeight) {
+        weight = newWeight;
+        deadWeight = newWeight;
+        return this;
+    }
+    
     @Override
     public E getBaseGraphEdge() {
         return baseGraphEdge;

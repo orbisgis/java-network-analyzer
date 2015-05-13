@@ -26,25 +26,34 @@ package org.javanetworkanalyzer.data;
 
 /**
  * Vertex to be used in the Dijkstra algorithm.
+ * 
+ * Each vertex has 
+ * - a "distance" (sum of the weights of a shortest path starting from a certain
+ * source leading to this node, used by the Dijkstra algorithm)
+ * - a "length" (sum of the dead weights of a shortest path starting from a 
+ * certain source leading to this node, unused by the Dijkstra algorithm).
  *
  * @param <V> Vertex
  *
  * @author Adam Gouge
+ * @author Olivier Bonin
  */
 public class VDijkstra<V extends VDijkstra, E>
         extends VPredImpl<V, E>
         implements VDist<Double> {
 
     /**
-     * The default distance assigned to all nodes at the beginning of the
-     * Dijkstra algorithm.
+     * The default distance and length assigned to all nodes at the beginning 
+     * of the Dijkstra algorithm.
      */
     public static final Double DEFAULT_DISTANCE = Double.POSITIVE_INFINITY;
+    public static final Double DEFAULT_LENGTH = Double.POSITIVE_INFINITY;
     /**
      * Length of a shortest path starting from a certain source leading to this
      * node (Dijkstra).
      */
     private double distance = DEFAULT_DISTANCE;
+    private double length = DEFAULT_LENGTH;
 
     /**
      * Constructor: Sets the id.
@@ -64,6 +73,16 @@ public class VDijkstra<V extends VDijkstra, E>
     public void setDistance(Double newDistance) {
         distance = newDistance;
     }
+    
+    @Override
+    public Double getLength() {
+        return length;
+    }
+
+    @Override
+    public void setLength(Double newLength) {
+        length = newLength;
+    }
 
     /**
      * Clears the predecessor list and resets the distance to the default
@@ -75,6 +94,7 @@ public class VDijkstra<V extends VDijkstra, E>
         super.clear();
         // Reset the distance to the default distance.
         distance = DEFAULT_DISTANCE;
+        length = DEFAULT_LENGTH;
     }
 
     /**
@@ -86,5 +106,6 @@ public class VDijkstra<V extends VDijkstra, E>
         super.clear();
         // Set the distance to zero.
         distance = 0.0;
+        length = 0.0;
     }
 }

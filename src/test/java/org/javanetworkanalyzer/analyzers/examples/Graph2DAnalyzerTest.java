@@ -45,6 +45,7 @@ public class Graph2DAnalyzerTest extends GraphAnalyzerTest {
     private final static String GRAPH2D = "2D Graph";
     private static final String FILENAME = "./files/graph2D.edges.csv";
     private static final String LENGTH = "length";
+    private static final String DISTANCE = "speed";
     private static final boolean PRINT_RESULTS = false;
     private static final boolean CHECK_RESULTS = true;
     private static final int NUMBER_OF_NODES = 6;
@@ -155,6 +156,11 @@ public class Graph2DAnalyzerTest extends GraphAnalyzerTest {
         return LENGTH;
     }
 
+    @Override
+    protected String getDeadWeightColumnName() {
+        return DISTANCE;
+    }
+    
     @Override
     public String getName() {
         return GRAPH2D;

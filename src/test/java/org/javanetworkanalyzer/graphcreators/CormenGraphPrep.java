@@ -33,6 +33,7 @@ import org.javanetworkanalyzer.model.EdgeCent;
  * Prepares the Cormen graph.
  *
  * @author Adam Gouge
+ * @author Olivier Bonin
  */
 //                   1
 //           >2 ------------>3

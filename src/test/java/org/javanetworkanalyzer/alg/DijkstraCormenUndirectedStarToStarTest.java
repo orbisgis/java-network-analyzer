@@ -41,6 +41,7 @@ import static org.junit.Assert.assertEquals;
  * between pairs of nodes are calculated.
  *
  * @author Adam Gouge
+ * @author Olivier Bonin
  */
 //                   1
 //           >2 ------------>3
@@ -69,7 +70,7 @@ public class DijkstraCormenUndirectedStarToStarTest {
 
             for (VWCent source : g.vertexSet()) {
                 for (VWCent target : g.vertexSet()) {
-                    double distance = dijkstra.oneToOne(source, target);
+                    double distance = dijkstra.oneToOne(source, target).getDistance();
                     assertEquals(expectedDistances.get(source).get(target),
                                  distance, TOLERANCE);
                 }
@@ -90,11 +91,11 @@ public class DijkstraCormenUndirectedStarToStarTest {
             for (VWCent source : g.vertexSet()) {
                 // Note: This is a oneToAll. It should be equivalent to
                 // dijkstra.calculate(source);
-                Map<VWCent, Double> distances =
+                Map<VWCent, DistanceLength> distances =
                         dijkstra.oneToMany(source, g.vertexSet());
-                for (Entry<VWCent, Double> e : distances.entrySet()) {
+                for (Entry<VWCent, DistanceLength> e : distances.entrySet()) {
                     VWCent target = e.getKey();
-                    Double distance = e.getValue();
+                    Double distance = e.getValue().getDistance();
                     assertEquals(expectedDistances.get(source).get(target),
                                  distance, TOLERANCE);
                 }
@@ -114,11 +115,11 @@ public class DijkstraCormenUndirectedStarToStarTest {
 
             for (VWCent target : g.vertexSet()) {
                 // Note: This is an allToOne.
-                Map<VWCent, Double> distances =
+                Map<VWCent, DistanceLength> distances =
                         dijkstra.manyToOne(g.vertexSet(), target);
-                for (Entry<VWCent, Double> e : distances.entrySet()) {
+                for (Entry<VWCent, DistanceLength> e : distances.entrySet()) {
                     VWCent source = e.getKey();
-                    Double distance = e.getValue();
+                    Double distance = e.getValue().getDistance();
                     assertEquals(expectedDistances.get(source).get(target),
                                  distance, TOLERANCE);
                 }
@@ -137,14 +138,14 @@ public class DijkstraCormenUndirectedStarToStarTest {
             Dijkstra<VWCent, Edge> dijkstra = new Dijkstra<VWCent, Edge>(g);
 
             // Note: This is an allToAll.
-            Map<VWCent, Map<VWCent, Double>> distances =
+            Map<VWCent, Map<VWCent, DistanceLength>> distances =
                     dijkstra.manyToMany(g.vertexSet(), g.vertexSet());
-            for (Entry<VWCent, Map<VWCent, Double>> e : distances.entrySet()) {
+            for (Entry<VWCent, Map<VWCent, DistanceLength>> e : distances.entrySet()) {
                 VWCent source = e.getKey();
-                Map<VWCent, Double> distancesKeyedByTarget = e.getValue();
-                for (Entry<VWCent, Double> f : distancesKeyedByTarget.entrySet()) {
+                Map<VWCent, DistanceLength> distancesKeyedByTarget = e.getValue();
+                for (Entry<VWCent, DistanceLength> f : distancesKeyedByTarget.entrySet()) {
                     VWCent target = f.getKey();
-                    double distance = f.getValue();
+                    double distance = f.getValue().getDistance();
                     assertEquals(expectedDistances.get(source).get(target),
                                  distance, TOLERANCE);
                 }

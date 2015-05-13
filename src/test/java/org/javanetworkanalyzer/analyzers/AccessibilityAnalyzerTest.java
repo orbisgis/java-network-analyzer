@@ -37,6 +37,7 @@ import static org.junit.Assert.*;
  * possible configurations.
  *
  * @author Adam Gouge
+ * @author Olivier Bonin
  */
 public class AccessibilityAnalyzerTest extends CormenGraphPrep {
 
@@ -46,6 +47,7 @@ public class AccessibilityAnalyzerTest extends CormenGraphPrep {
     public void testD() throws Exception {
         DirectedG<VAccess, EdgeCent> g = directed();
         test(g);
+        System.out.println(g.getVertex(1));
         assertEquals(4, g.getVertex(1).getClosestDestinationId());
         assertEquals(1.0, g.getVertex(1).getDistanceToClosestDestination(),
                      TOLERANCE);

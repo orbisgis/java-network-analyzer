@@ -35,6 +35,7 @@ import static org.javanetworkanalyzer.graphcreators.GraphCreator.UNDIRECTED;
  * Test helper for manually-entered graphs.
  *
  * @author Adam Gouge
+ * @author Olivier Bonin
  */
 public abstract class ManuallyCreatedGraphAnalyzerTest extends GraphAnalyzerTest {
 
@@ -68,7 +69,8 @@ public abstract class ManuallyCreatedGraphAnalyzerTest extends GraphAnalyzerTest
      */
     protected abstract void addWeightedEdges(
             WeightedKeyedGraph<? extends VCent, EdgeCent> graph);
-
+    
+ 
     /**
      * Loads an unweighted graph with the given orientation.
      *
@@ -165,6 +167,7 @@ public abstract class ManuallyCreatedGraphAnalyzerTest extends GraphAnalyzerTest
         WeightedKeyedGraph<? extends VCent, EdgeCent> graph = null;
         try {
             graph = initializeWeightedGraph(getWeightColumnName(),
+                                            getDeadWeightColumnName(),
                                             GraphCreator.DIRECTED);
             addVertices(graph);
             addWeightedEdges(graph);
@@ -193,6 +196,7 @@ public abstract class ManuallyCreatedGraphAnalyzerTest extends GraphAnalyzerTest
         WeightedKeyedGraph<? extends VCent, EdgeCent> graph = null;
         try {
             graph = initializeWeightedGraph(getWeightColumnName(),
+                                            getDeadWeightColumnName(),
                                             GraphCreator.UNDIRECTED);
             addVertices(graph);
             addWeightedEdges((WeightedKeyedGraph) graph);
@@ -231,6 +235,7 @@ public abstract class ManuallyCreatedGraphAnalyzerTest extends GraphAnalyzerTest
      */
     private WeightedKeyedGraph<? extends VCent, EdgeCent> initializeWeightedGraph(
             String weightColumnName,
+            String deadWeightColumnName,
             int orientation) throws NoSuchMethodException {
         if (orientation != UNDIRECTED) {
             return new DirectedWeightedPseudoG<VWCent, EdgeCent>(
@@ -254,6 +259,14 @@ public abstract class ManuallyCreatedGraphAnalyzerTest extends GraphAnalyzerTest
      */
     @Override
     protected String getWeightColumnName() {
+        return "";
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected String getDeadWeightColumnName() {
         return "";
     }
 }

@@ -37,6 +37,7 @@ import org.jgrapht.Graph;
  * betweenness and closeness in a {@link GraphAnalyzer}.
  *
  * @author Adam Gouge
+ * @author Olivier Bonin
  */
 public class DijkstraForCentrality<E extends EdgeSPT> extends Dijkstra<VWCent, E>
         implements CentralityAlg<VWCent, E, WeightedPathLengthData> {
@@ -116,10 +117,11 @@ public class DijkstraForCentrality<E extends EdgeSPT> extends Dijkstra<VWCent, E
     @Override
     protected void shortestPathSoFarUpdate(VWCent startNode, VWCent u, VWCent v,
                                            Double uvWeight,
+                                           Double uvDeadWeight,
                                            E e, PriorityQueue<VWCent> queue) {
         // Reset the number of shortest paths
         v.setSPCount(u.getSPCount());
-        super.shortestPathSoFarUpdate(startNode, u, v, uvWeight, e, queue);
+        super.shortestPathSoFarUpdate(startNode, u, v, uvWeight, uvDeadWeight, e, queue);
     }
 
     @Override
