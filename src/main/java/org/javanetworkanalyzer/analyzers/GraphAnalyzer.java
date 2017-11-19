@@ -242,9 +242,7 @@ public abstract class GraphAnalyzer<V extends VCent, E extends EdgeCent, S exten
             // startNode, do:
 
             for (V predecessor : (Set<V>) w.getPredecessors()) {
-
-                final double oldDep = predecessor.getDependency();
-
+                
                 // (A) Add the contribution of the dependency of startNode
                 // on w to the dependency of startNode on v.
                 final double sigmaFactor = ((double) predecessor.getSPCount()
