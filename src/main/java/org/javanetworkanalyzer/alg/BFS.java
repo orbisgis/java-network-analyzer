@@ -54,9 +54,9 @@ import java.util.Set;
  * do graph analysis (e.g., calculating betweenness centrality).
  *
  * @param <V> The data structure to hold node information during the execution
- *            of BFS.
- * @author Adam Gouge
+ *            of BFS. * 
  * @param <E> edge
+ * @author Adam Gouge
  */
 public class BFS<V extends VBFS, E extends EdgeSPT>
         extends GraphSearchAlgorithm<V, E> {
