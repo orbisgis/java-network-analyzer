@@ -14,8 +14,8 @@
     <url>http://www.orbisgis.org</url>
     <licenses>
         <license>
-            <name>GNU General Public License (GPLV3+)</name>
-            <url>http://www.gnu.org/licenses/gpl-3.0.html</url>
+            <name>GNU Lesser General Public License (LGPLV3+)</name>
+            <url>http://www.gnu.org/licenses/lgpl-3.0.html</url>
         </license>
     </licenses>
     <developers>
