@@ -15,22 +15,22 @@
  * Institut Universitaire de Technologie de Vannes
  * 8, Rue Montaigne - BP 561 56017 Vannes Cedex
  * 
- * Java Network Analyzer is distributed under GPL 3 license.
+ * Java Network Analyzer is distributed under LGPL 3 license.
  *
  * Copyright (C) 2012-2014 CNRS (IRSTV CNRS FR 2488)
- * Copyright (C) 2015-2017 CNRS (Lab-STICC CNRS UMR 6285)
+ * Copyright (C) 2015-2018 CNRS (Lab-STICC CNRS UMR 6285)
  *
  * Java Network Analyzer is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by the Free
+ * it under the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation, either version 3 of the License, or (at your option) any
  * later version.
  *
  * Java Network Analyzer is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  *
- * You should have received a copy of the GNU General Public License along with
+ * You should have received a copy of the GNU Lesser General Public License along with
  * Java Network Analyzer. If not, see <http://www.gnu.org/licenses/>.
  * 
  * For more information, please consult: <http://www.orbisgis.org/>
@@ -46,7 +46,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-import org.jgrapht.graph.DefaultEdge;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
