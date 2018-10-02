@@ -1,4 +1,4 @@
-# Java Network Analyzer [![GitHub](https://img.shields.io/github/license/orbisgis/h2gis.svg)][![Build Status](https://travis-ci.org/orbisgis/java-network-analyzer.png)](https://travis-ci.org/orbisgis/java-network-analyzer)
+# Java Network Analyzer ![GitHub](https://img.shields.io/github/license/orbisgis/h2gis.svg)[![Build Status](https://travis-ci.org/orbisgis/java-network-analyzer.png)](https://travis-ci.org/orbisgis/java-network-analyzer)
 
 Java Network Analyzer provides a collection of [graph
 theory](http://en.wikipedia.org/wiki/Graph_theory) and [social network
