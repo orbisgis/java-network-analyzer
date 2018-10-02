@@ -1,4 +1,4 @@
-/**
+/*
  * Java Network Analyzer provides a collection of graph theory and social
  * network analysis algorithms implemented on mathematical graphs using the
  * <a href="http://www.jgrapht.org/">JGraphT</a> library.
