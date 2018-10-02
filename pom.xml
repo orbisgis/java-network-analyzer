@@ -1,49 +1,25 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.orbisgis</groupId>
-    <artifactId>java-network-analyzer</artifactId>
-    <version>0.1.7-SNAPSHOT</version>
-    <packaging>bundle</packaging>
-    <name>${project.groupId}:${project.artifactId}</name>
-    <description>Graph theory and social network analysis algorithms
-        implemented on JGraphT graphs.</description>
-    <organization>
-        <name>Lab-STICC - CNRS UMR 6285</name>
-        <url>http://www.labsticc.fr/</url>
-    </organization>
-    <url>http://www.orbisgis.org</url>
-    <licenses>
-        <license>
-            <name>GNU Lesser General Public License (LGPLV3+)</name>
-            <url>http://www.gnu.org/licenses/lgpl-3.0.html</url>
-        </license>
-    </licenses>
-    <developers>
-        <developer>
-            <name>Erwan Bocher</name>
-            <organization>Lab-STICC - CNRS UMR 6285</organization>
-        </developer>
-        <developer>
-            <name>Adam Gouge</name>
-            <organization>IRSTV CNRS-FR-2488 (2012-2014)</organization>
-        </developer>
-    </developers>
-    <scm>
-        <connection>scm:git:git@github.com:orbisgis/Java-Network-Analyzer.git</connection>
-        <developerConnection>scm:git:git@github.com:orbisgis/Java-Network-Analyzer.git</developerConnection>
-        <url>git@github.com:orbisgis/Java-Network-Analyzer.git</url>
-    </scm>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
-    </properties>
+
+    <!-- The Basics -->
     <parent>
         <groupId>org.orbisgis</groupId>
         <artifactId>orbisgis-nexus</artifactId>
         <version>3</version>
     </parent>
+    <artifactId>java-network-analyzer</artifactId>
+    <version>0.1.7-SNAPSHOT</version>
+    <packaging>bundle</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+    </properties>
 
+    <!-- Dependencies -->
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -107,4 +83,51 @@
             </plugin>
         </plugins>
     </build>
+
+    <!-- More Project Information -->
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>Graph theory and social network analysis algorithms implemented on JGraphT graphs.</description>
+    <url>http://www.orbisgis.org</url>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License (LGPLV3+)</name>
+            <url>http://www.gnu.org/licenses/lgpl-3.0.html</url>
+        </license>
+    </licenses>
+    <organization>
+        <name>Lab-STICC - CNRS UMR 6285</name>
+        <url>http://www.labsticc.fr/</url>
+    </organization>
+    <developers>
+        <developer>
+            <name>Erwan Bocher</name>
+            <organization>Lab-STICC - CNRS UMR 6285</organization>
+        </developer>
+        <developer>
+            <name>Adam Gouge</name>
+            <organization>IRSTV CNRS-FR-2488 (2012-2014)</organization>
+        </developer>
+    </developers>
+
+    <!-- Environment Settings -->
+    <issueManagement>
+        <system>Github</system>
+        <url>https://github.com/orbisgis/Java-Network-Analyzer/issues</url>
+    </issueManagement>
+    <ciManagement>
+        <system>Travis CI</system>
+        <url>https://travis-ci.com/orbisgis/Java-Network-Analyzer</url>
+    </ciManagement>
+    <scm>
+        <connection>scm:git:git@github.com:orbisgis/Java-Network-Analyzer.git</connection>
+        <developerConnection>scm:git:git@github.com:orbisgis/Java-Network-Analyzer.git</developerConnection>
+        <url>git@github.com:orbisgis/Java-Network-Analyzer.git</url>
+    </scm>
+    <repositories>
+        <repository>
+            <id>orbisgis-nexus</id>
+            <name>OrbisGIS nexus repository</name>
+            <url>http://nexus.orbisgis.org/content/repositories/osgi-maven</url>
+        </repository>
+    </repositories>
 </project>
