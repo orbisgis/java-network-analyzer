@@ -7,8 +7,8 @@
     <!-- The Basics -->
     <parent>
         <groupId>org.orbisgis</groupId>
-        <artifactId>orbisgis-nexus</artifactId>
-        <version>3</version>
+        <artifactId>orbisparent</artifactId>
+        <version>1.0.3-SNAPSHOT</version>
     </parent>
     <artifactId>java-network-analyzer</artifactId>
     <version>0.1.7</version>
