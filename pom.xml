@@ -126,13 +126,38 @@
         <system>Github</system>
         <url>https://github.com/orbisgis/Java-Network-Analyzer/issues</url>
     </issueManagement>
+
     <ciManagement>
         <system>Travis CI</system>
         <url>https://travis-ci.com/orbisgis/Java-Network-Analyzer</url>
     </ciManagement>
+
     <scm>
         <connection>scm:git:git@github.com:orbisgis/Java-Network-Analyzer.git</connection>
         <developerConnection>scm:git:git@github.com:orbisgis/Java-Network-Analyzer.git</developerConnection>
         <url>git@github.com:orbisgis/Java-Network-Analyzer.git</url>
     </scm>
+
+    <repositories>
+        <repository>
+            <id>orbisgis-release</id>
+            <url>http://nexus-ng.orbisgis.org/repository/orbisgis-release</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>orbisgis-snapshot</id>
+            <url>http://nexus-ng.orbisgis.org/repository/orbisgis-snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+    </repositories>
 </project>
