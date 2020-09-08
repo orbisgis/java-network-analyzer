@@ -39,12 +39,14 @@
  */
 package org.javanetworkanalyzer.alg;
 
-import junit.framework.TestCase;
 import org.javanetworkanalyzer.data.VDFS;
 import org.javanetworkanalyzer.model.AsUndirectedG;
 import org.javanetworkanalyzer.model.DirectedPseudoG;
 import org.javanetworkanalyzer.model.Edge;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Tests the DFS algorithm on a(n) (un)directed graph. Note: Both the choice of
@@ -55,7 +57,7 @@ import org.junit.Test;
  *
  * @author Adam Gouge
  */
-public class DFSTest extends TestCase {
+public class DFSTest {
 
     protected DirectedPseudoG<VDFS, Edge> graph;
     protected DFS<VDFS, Edge> dfs;
@@ -69,39 +71,39 @@ public class DFSTest extends TestCase {
     @Test
     public void testDFSDirected() {
         dfs.calculate();
-        assertTrue(v1.getDiscoveryTime() == 1);
-        assertTrue(v1.getFinishingTime() == 8);
-        assertTrue(v2.getDiscoveryTime() == 2);
-        assertTrue(v2.getFinishingTime() == 7);
-        assertTrue(v3.getDiscoveryTime() == 3);
-        assertTrue(v3.getFinishingTime() == 6);
-        assertTrue(v4.getDiscoveryTime() == 4);
-        assertTrue(v4.getFinishingTime() == 5);
-        assertTrue(v5.getDiscoveryTime() == 9);
-        assertTrue(v5.getFinishingTime() == 12);
-        assertTrue(v6.getDiscoveryTime() == 10);
-        assertTrue(v6.getFinishingTime() == 11);
+        assertEquals(1, v1.getDiscoveryTime());
+        assertEquals(8, v1.getFinishingTime());
+        assertEquals(v2.getDiscoveryTime(), 2);
+        assertEquals(7, v2.getFinishingTime());
+        assertEquals(3, v3.getDiscoveryTime());
+        assertEquals(6, v3.getFinishingTime());
+        assertEquals(4, v4.getDiscoveryTime());
+        assertEquals(5, v4.getFinishingTime());
+        assertEquals(9, v5.getDiscoveryTime());
+        assertEquals(12, v5.getFinishingTime());
+        assertEquals(10, v6.getDiscoveryTime());
+        assertEquals(11, v6.getFinishingTime());
     }
 
     @Test
     public void testDFSUndirected() throws NoSuchMethodException {
         dfs = new DFS<VDFS, Edge>(new AsUndirectedG<VDFS, Edge>(graph));
         dfs.calculate();
-        assertTrue(v1.getDiscoveryTime() == 1);
-        assertTrue(v1.getFinishingTime() == 12);
-        assertTrue(v2.getDiscoveryTime() == 2);
-        assertTrue(v2.getFinishingTime() == 11);
-        assertTrue(v3.getDiscoveryTime() == 4);
-        assertTrue(v3.getFinishingTime() == 5);
-        assertTrue(v4.getDiscoveryTime() == 3);
-        assertTrue(v4.getFinishingTime() == 10);
-        assertTrue(v5.getDiscoveryTime() == 6);
-        assertTrue(v5.getFinishingTime() == 9);
-        assertTrue(v6.getDiscoveryTime() == 7);
-        assertTrue(v6.getFinishingTime() == 8);
+        assertEquals(1, v1.getDiscoveryTime());
+        assertEquals(12, v1.getFinishingTime());
+        assertEquals(2, v2.getDiscoveryTime());
+        assertEquals(11, v2.getFinishingTime());
+        assertEquals(4, v3.getDiscoveryTime());
+        assertEquals(5, v3.getFinishingTime());
+        assertEquals(3, v4.getDiscoveryTime());
+        assertEquals(10, v4.getFinishingTime());
+        assertEquals(6, v5.getDiscoveryTime());
+        assertEquals(9, v5.getFinishingTime());
+        assertEquals(7, v6.getDiscoveryTime());
+        assertEquals(8, v6.getFinishingTime());
     }
 
-    @Override
+    @BeforeEach
     public void setUp() {
         graph = new DirectedPseudoG<VDFS, Edge>(VDFS.class, Edge.class);
         graph.addEdge(1, 2);

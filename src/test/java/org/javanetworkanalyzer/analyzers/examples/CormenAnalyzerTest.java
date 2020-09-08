@@ -46,8 +46,9 @@ import org.javanetworkanalyzer.data.VWCent;
 import org.javanetworkanalyzer.model.*;
 import org.javanetworkanalyzer.progress.NullProgressMonitor;
 import org.javanetworkanalyzer.progress.ProgressMonitor;
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Tests graph analyzers on the example graph in Figure 24.6 of Introduction to

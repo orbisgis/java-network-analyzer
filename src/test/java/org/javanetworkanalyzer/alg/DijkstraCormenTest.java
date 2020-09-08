@@ -41,11 +41,11 @@ package org.javanetworkanalyzer.alg;
 
 import org.javanetworkanalyzer.data.VDijkstra;
 import org.javanetworkanalyzer.model.*;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Tests {@link Dijkstra} on the Cormen graph.
@@ -54,14 +54,14 @@ import static org.junit.Assert.assertTrue;
  */
 public class DijkstraCormenTest {
 
-    private DirectedWeightedPseudoG<VDijkstra, Edge> graph;
+    private static DirectedWeightedPseudoG<VDijkstra, Edge> graph;
     private Dijkstra<VDijkstra, Edge> dijkstra;
     private TraversalGraph<VDijkstra, Edge> sPT;
-    private VDijkstra v1;
-    private VDijkstra v2;
-    private VDijkstra v3;
-    private VDijkstra v4;
-    private VDijkstra v5;
+    private static VDijkstra v1;
+    private static VDijkstra v2;
+    private static VDijkstra v3;
+    private static VDijkstra v4;
+    private static VDijkstra v5;
     private static final double TOLERANCE = 0.0;
 
     @Test
@@ -718,8 +718,8 @@ public class DijkstraCormenTest {
         assertTrue(sPT.outDegreeOf(v5) == 4);
     }
 
-    @Before
-    public void setUp() {
+    @BeforeAll
+    public static void setUp() {
 
         graph = new DirectedWeightedPseudoG<VDijkstra, Edge>(
                 VDijkstra.class, Edge.class);

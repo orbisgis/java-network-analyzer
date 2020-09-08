@@ -45,8 +45,9 @@ import java.util.Map.Entry;
 import org.javanetworkanalyzer.data.VWCent;
 import org.javanetworkanalyzer.model.Edge;
 import org.javanetworkanalyzer.model.WeightedPseudoG;
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Tests one-to-one, one-to-many, many-to-one and many-to-many Dijkstra searches

@@ -47,7 +47,7 @@ import org.javanetworkanalyzer.model.EdgeCent;
 import org.javanetworkanalyzer.model.UndirectedG;
 import org.javanetworkanalyzer.progress.NullProgressMonitor;
 import org.javanetworkanalyzer.progress.ProgressMonitor;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests graph analysis (betweenness, closeness) on an undirected 2D graph.

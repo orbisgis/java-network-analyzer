@@ -39,7 +39,6 @@
  */
 package org.javanetworkanalyzer.analyzers;
 
-import static org.javanetworkanalyzer.analyzers.CentralityTest.TOLERANCE;
 import org.javanetworkanalyzer.data.VCent;
 import org.javanetworkanalyzer.data.VUCent;
 import org.javanetworkanalyzer.data.VWCent;
@@ -47,12 +46,13 @@ import org.javanetworkanalyzer.model.*;
 import org.javanetworkanalyzer.graphcreators.GraphCreator;
 import org.javanetworkanalyzer.graphcreators.WeightedGraphCreator;
 import org.javanetworkanalyzer.progress.ProgressMonitor;
-import static org.junit.Assert.assertEquals;
 
 import org.jgrapht.graph.DefaultWeightedEdge;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Tests weighted and unweighted graph analysis.
