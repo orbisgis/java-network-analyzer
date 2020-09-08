@@ -39,31 +39,33 @@
  */
 package org.javanetworkanalyzer.alg;
 
-import junit.framework.TestCase;
 import org.javanetworkanalyzer.model.PseudoG;
 import org.javanetworkanalyzer.data.VUCent;
 import org.javanetworkanalyzer.model.Edge;
 import org.javanetworkanalyzer.model.TraversalGraph;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Tests the BFS algorithm to calculate distances from a given source vertex.
  *
  * @author Adam Gouge
  */
-public class BFSTest extends TestCase {
+public class BFSTest {
 
-    private PseudoG<VUCent, Edge> graph;
-    private BFS<VUCent, Edge> bfs;
+    private static PseudoG<VUCent, Edge> graph;
+    private static BFS<VUCent, Edge> bfs;
     private TraversalGraph<VUCent,Edge> sPT;
-    private VUCent v1;
-    private VUCent v2;
-    private VUCent v3;
-    private VUCent v4;
-    private VUCent v5;
-    private VUCent v6;
-    private VUCent v7;
-    private VUCent v8;
+    private static VUCent v1;
+    private static VUCent v2;
+    private static VUCent v3;
+    private static VUCent v4;
+    private static VUCent v5;
+    private static VUCent v6;
+    private static VUCent v7;
+    private static VUCent v8;
 
     @Test
     public void testBFSFromVertexThree() {
@@ -118,8 +120,8 @@ public class BFSTest extends TestCase {
         assertTrue(sPT.containsEdge(v2, v1));
     }
 
-    @Override
-    public void setUp() {
+    @BeforeAll
+    public static void setUp() {
         graph = new PseudoG<VUCent, Edge>(VUCent.class, Edge.class);
         graph.addEdge(1, 2);
         graph.addEdge(2, 3);

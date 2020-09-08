@@ -41,11 +41,11 @@ package org.javanetworkanalyzer.alg;
 
 import org.javanetworkanalyzer.data.VBFS;
 import org.javanetworkanalyzer.model.*;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Tests {@link BFS} on the Cormen graph.
@@ -54,14 +54,14 @@ import static org.junit.Assert.assertTrue;
  */
 public class BFSCormenTest {
 
-    private DirectedPseudoG<VBFS, Edge> graph;
+    private static DirectedPseudoG<VBFS, Edge> graph;
     private BFS<VBFS, Edge> bfs;
     private TraversalGraph<VBFS, Edge> sPT;
-    private VBFS v1;
-    private VBFS v2;
-    private VBFS v3;
-    private VBFS v4;
-    private VBFS v5;
+    private static VBFS v1;
+    private static VBFS v2;
+    private static VBFS v3;
+    private static VBFS v4;
+    private static VBFS v5;
     private static final double TOLERANCE = 0.0;
 
 
@@ -388,8 +388,8 @@ public class BFSCormenTest {
         assertTrue(sPT.outDegreeOf(v5) == 4);
     }
 
-    @Before
-    public void setUp() {
+    @BeforeAll
+    public static void setUp() {
 
         graph = new DirectedPseudoG<VBFS, Edge>(VBFS.class, Edge.class);
 

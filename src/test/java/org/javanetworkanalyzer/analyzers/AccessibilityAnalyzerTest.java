@@ -44,8 +44,10 @@ import java.util.Set;
 import org.javanetworkanalyzer.data.VAccess;
 import org.javanetworkanalyzer.graphcreators.CormenGraphPrep;
 import org.javanetworkanalyzer.model.*;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Tests the {@link AccessibilityAnalyzer} on the Cormen graph under all

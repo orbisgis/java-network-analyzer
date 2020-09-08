@@ -42,12 +42,14 @@ package org.javanetworkanalyzer.alg;
 import org.javanetworkanalyzer.data.VStrahler;
 import org.javanetworkanalyzer.model.Edge;
 import org.javanetworkanalyzer.model.StrahlerTree;
+import org.junit.jupiter.api.Test;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Tests calculating the Strahler numbers of the nodes in a tree.

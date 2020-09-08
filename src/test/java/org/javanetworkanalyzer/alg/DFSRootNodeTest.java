@@ -42,7 +42,10 @@ package org.javanetworkanalyzer.alg;
 import org.javanetworkanalyzer.data.VDFS;
 import org.javanetworkanalyzer.model.Edge;
 import org.javanetworkanalyzer.model.TraversalGraph;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Tests the DFS algorithm from all possible start vertices on a directed graph.
@@ -57,21 +60,21 @@ public class DFSRootNodeTest extends DFSTest {
     @Test
     public void testDFSDirectedFromVertexOne() {
         dfs.calculate(v1);
-        assertTrue(v1.getDiscoveryTime() == 1);
-        assertTrue(v1.getFinishingTime() == 8);
-        assertTrue(v2.getDiscoveryTime() == 2);
-        assertTrue(v2.getFinishingTime() == 7);
-        assertTrue(v3.getDiscoveryTime() == 3);
-        assertTrue(v3.getFinishingTime() == 6);
-        assertTrue(v4.getDiscoveryTime() == 4);
-        assertTrue(v4.getFinishingTime() == 5);
-        assertTrue(v5.getDiscoveryTime() == -1);
-        assertTrue(v5.getFinishingTime() == -1);
-        assertTrue(v6.getDiscoveryTime() == -1);
-        assertTrue(v6.getFinishingTime() == -1);
+        assertEquals(1, v1.getDiscoveryTime());
+        assertEquals(8, v1.getFinishingTime());
+        assertEquals(2, v2.getDiscoveryTime());
+        assertEquals(7, v2.getFinishingTime());
+        assertEquals(3, v3.getDiscoveryTime());
+        assertEquals(6, v3.getFinishingTime());
+        assertEquals(4, v4.getDiscoveryTime());
+        assertEquals(5, v4.getFinishingTime());
+        assertEquals(v5.getDiscoveryTime(), -1);
+        assertEquals(v5.getFinishingTime(), -1);
+        assertEquals(v6.getDiscoveryTime(), -1);
+        assertEquals(v6.getFinishingTime(), -1);
         traverse = dfs.reconstructTraversalGraph();
-        assertTrue(traverse.getRoot().equals(v1));
-        assertTrue(traverse.edgeSet().size() == 3);
+        assertEquals(traverse.getRoot(), v1);
+        assertEquals(3, traverse.edgeSet().size());
         assertTrue(traverse.containsEdge(v1, v2));
         assertTrue(traverse.containsEdge(v2, v3));
         assertTrue(traverse.containsEdge(v3, v4));
@@ -80,21 +83,21 @@ public class DFSRootNodeTest extends DFSTest {
     @Test
     public void testDFSDirectedFromVertexTwo() {
         dfs.calculate(v2);
-        assertTrue(v1.getDiscoveryTime() == -1);
-        assertTrue(v1.getFinishingTime() == -1);
-        assertTrue(v2.getDiscoveryTime() == 1);
-        assertTrue(v2.getFinishingTime() == 6);
-        assertTrue(v3.getDiscoveryTime() == 2);
-        assertTrue(v3.getFinishingTime() == 5);
-        assertTrue(v4.getDiscoveryTime() == 3);
-        assertTrue(v4.getFinishingTime() == 4);
-        assertTrue(v5.getDiscoveryTime() == -1);
-        assertTrue(v5.getFinishingTime() == -1);
-        assertTrue(v6.getDiscoveryTime() == -1);
-        assertTrue(v6.getFinishingTime() == -1);
+        assertEquals(v1.getDiscoveryTime(), -1);
+        assertEquals(v1.getFinishingTime(), -1);
+        assertEquals(1, v2.getDiscoveryTime());
+        assertEquals(6, v2.getFinishingTime());
+        assertEquals(2, v3.getDiscoveryTime());
+        assertEquals(5, v3.getFinishingTime());
+        assertEquals(3, v4.getDiscoveryTime());
+        assertEquals(4, v4.getFinishingTime());
+        assertEquals(v5.getDiscoveryTime(), -1);
+        assertEquals(v5.getFinishingTime(), -1);
+        assertEquals(v6.getDiscoveryTime(), -1);
+        assertEquals(v6.getFinishingTime(), -1);
         traverse = dfs.reconstructTraversalGraph();
-        assertTrue(traverse.getRoot().equals(v2));
-        assertTrue(traverse.edgeSet().size() == 2);
+        assertEquals(traverse.getRoot(), v2);
+        assertEquals(2, traverse.edgeSet().size());
         assertTrue(traverse.containsEdge(v2, v3));
         assertTrue(traverse.containsEdge(v3, v4));
     }
@@ -102,21 +105,21 @@ public class DFSRootNodeTest extends DFSTest {
     @Test
     public void testDFSDirectedFromVertexThree() {
         dfs.calculate(v3);
-        assertTrue(v1.getDiscoveryTime() == -1);
-        assertTrue(v1.getFinishingTime() == -1);
-        assertTrue(v2.getDiscoveryTime() == 3);
-        assertTrue(v2.getFinishingTime() == 4);
-        assertTrue(v3.getDiscoveryTime() == 1);
-        assertTrue(v3.getFinishingTime() == 6);
-        assertTrue(v4.getDiscoveryTime() == 2);
-        assertTrue(v4.getFinishingTime() == 5);
-        assertTrue(v5.getDiscoveryTime() == -1);
-        assertTrue(v5.getFinishingTime() == -1);
-        assertTrue(v6.getDiscoveryTime() == -1);
-        assertTrue(v6.getFinishingTime() == -1);
+        assertEquals(v1.getDiscoveryTime(), -1);
+        assertEquals(v1.getFinishingTime(), -1);
+        assertEquals(3, v2.getDiscoveryTime());
+        assertEquals(4, v2.getFinishingTime());
+        assertEquals(1, v3.getDiscoveryTime());
+        assertEquals(6, v3.getFinishingTime());
+        assertEquals(2, v4.getDiscoveryTime());
+        assertEquals(5, v4.getFinishingTime());
+        assertEquals(v5.getDiscoveryTime(), -1);
+        assertEquals(v5.getFinishingTime(), -1);
+        assertEquals(v6.getDiscoveryTime(), -1);
+        assertEquals(v6.getFinishingTime(), -1);
         traverse = dfs.reconstructTraversalGraph();
-        assertTrue(traverse.getRoot().equals(v3));
-        assertTrue(traverse.edgeSet().size() == 2);
+        assertEquals(traverse.getRoot(), v3);
+        assertEquals(2, traverse.edgeSet().size());
         assertTrue(traverse.containsEdge(v3, v4));
         assertTrue(traverse.containsEdge(v4, v2));
     }
@@ -124,21 +127,21 @@ public class DFSRootNodeTest extends DFSTest {
     @Test
     public void testDFSDirectedFromVertexFour() {
         dfs.calculate(v4);
-        assertTrue(v1.getDiscoveryTime() == -1);
-        assertTrue(v1.getFinishingTime() == -1);
-        assertTrue(v2.getDiscoveryTime() == 2);
-        assertTrue(v2.getFinishingTime() == 5);
-        assertTrue(v3.getDiscoveryTime() == 3);
-        assertTrue(v3.getFinishingTime() == 4);
-        assertTrue(v4.getDiscoveryTime() == 1);
-        assertTrue(v4.getFinishingTime() == 6);
-        assertTrue(v5.getDiscoveryTime() == -1);
-        assertTrue(v5.getFinishingTime() == -1);
-        assertTrue(v6.getDiscoveryTime() == -1);
-        assertTrue(v6.getFinishingTime() == -1);
+        assertEquals(v1.getDiscoveryTime(), -1);
+        assertEquals(v1.getFinishingTime(), -1);
+        assertEquals(2, v2.getDiscoveryTime());
+        assertEquals(5, v2.getFinishingTime());
+        assertEquals(3, v3.getDiscoveryTime());
+        assertEquals(4, v3.getFinishingTime());
+        assertEquals(1, v4.getDiscoveryTime());
+        assertEquals(6, v4.getFinishingTime());
+        assertEquals(v5.getDiscoveryTime(), -1);
+        assertEquals(v5.getFinishingTime(), -1);
+        assertEquals(v6.getDiscoveryTime(), -1);
+        assertEquals(v6.getFinishingTime(), -1);
         traverse = dfs.reconstructTraversalGraph();
-        assertTrue(traverse.getRoot().equals(v4));
-        assertTrue(traverse.edgeSet().size() == 2);
+        assertEquals(traverse.getRoot(), v4);
+        assertEquals(2, traverse.edgeSet().size());
         assertTrue(traverse.containsEdge(v4, v2));
         assertTrue(traverse.containsEdge(v2, v3));
     }
@@ -146,21 +149,21 @@ public class DFSRootNodeTest extends DFSTest {
     @Test
     public void testDFSDirectedFromVertexFive() {
         dfs.calculate(v5);
-        assertTrue(v1.getDiscoveryTime() == -1);
-        assertTrue(v1.getFinishingTime() == -1);
-        assertTrue(v2.getDiscoveryTime() == 3);
-        assertTrue(v2.getFinishingTime() == 6);
-        assertTrue(v3.getDiscoveryTime() == 4);
-        assertTrue(v3.getFinishingTime() == 5);
-        assertTrue(v4.getDiscoveryTime() == 2);
-        assertTrue(v4.getFinishingTime() == 7);
-        assertTrue(v5.getDiscoveryTime() == 1);
-        assertTrue(v5.getFinishingTime() == 10);
-        assertTrue(v6.getDiscoveryTime() == 8);
-        assertTrue(v6.getFinishingTime() == 9);
+        assertEquals(v1.getDiscoveryTime(), -1);
+        assertEquals(v1.getFinishingTime(), -1);
+        assertEquals(3, v2.getDiscoveryTime());
+        assertEquals(6, v2.getFinishingTime());
+        assertEquals(4, v3.getDiscoveryTime());
+        assertEquals(5, v3.getFinishingTime());
+        assertEquals(2, v4.getDiscoveryTime());
+        assertEquals(7, v4.getFinishingTime());
+        assertEquals(1, v5.getDiscoveryTime());
+        assertEquals(10, v5.getFinishingTime());
+        assertEquals(8, v6.getDiscoveryTime());
+        assertEquals(9, v6.getFinishingTime());
         traverse = dfs.reconstructTraversalGraph();
-        assertTrue(traverse.getRoot().equals(v5));
-        assertTrue(traverse.edgeSet().size() == 4);
+        assertEquals(traverse.getRoot(), v5);
+        assertEquals(4, traverse.edgeSet().size());
         assertTrue(traverse.containsEdge(v5, v4));
         assertTrue(traverse.containsEdge(v4, v2));
         assertTrue(traverse.containsEdge(v2, v3));
@@ -170,20 +173,20 @@ public class DFSRootNodeTest extends DFSTest {
     @Test
     public void testDFSDirectedFromVertexSix() {
         dfs.calculate(v6);
-        assertTrue(v1.getDiscoveryTime() == -1);
-        assertTrue(v1.getFinishingTime() == -1);
-        assertTrue(v2.getDiscoveryTime() == -1);
-        assertTrue(v2.getFinishingTime() == -1);
-        assertTrue(v3.getDiscoveryTime() == -1);
-        assertTrue(v3.getFinishingTime() == -1);
-        assertTrue(v4.getDiscoveryTime() == -1);
-        assertTrue(v4.getFinishingTime() == -1);
-        assertTrue(v5.getDiscoveryTime() == -1);
-        assertTrue(v5.getFinishingTime() == -1);
-        assertTrue(v6.getDiscoveryTime() == 1);
-        assertTrue(v6.getFinishingTime() == 2);
+        assertEquals(v1.getDiscoveryTime(), -1);
+        assertEquals(v1.getFinishingTime(), -1);
+        assertEquals(v2.getDiscoveryTime(), -1);
+        assertEquals(v2.getFinishingTime(), -1);
+        assertEquals(v3.getDiscoveryTime(), -1);
+        assertEquals(v3.getFinishingTime(), -1);
+        assertEquals(v4.getDiscoveryTime(), -1);
+        assertEquals(v4.getFinishingTime(), -1);
+        assertEquals(v5.getDiscoveryTime(), -1);
+        assertEquals(v5.getFinishingTime(), -1);
+        assertEquals(1, v6.getDiscoveryTime());
+        assertEquals(2, v6.getFinishingTime());
         traverse = dfs.reconstructTraversalGraph();
-        assertTrue(traverse.getRoot().equals(v6));
-        assertTrue(traverse.edgeSet().size() == 0);
+        assertEquals(traverse.getRoot(), v6);
+        assertEquals(0, traverse.edgeSet().size());
     }
 }
