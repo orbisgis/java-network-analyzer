@@ -11,7 +11,7 @@
         <version>1.0.3-SNAPSHOT</version>
     </parent>
     <artifactId>java-network-analyzer</artifactId>
-    <version>0.1.7</version>
+    <version>0.1.8-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
