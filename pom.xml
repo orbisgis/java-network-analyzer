@@ -8,7 +8,7 @@
     <parent>
         <groupId>org.orbisgis</groupId>
         <artifactId>orbisparent</artifactId>
-        <version>1.0.3-SNAPSHOT</version>
+        <version>1.0.4-SNAPSHOT</version>
     </parent>
     <artifactId>java-network-analyzer</artifactId>
     <version>0.1.8-SNAPSHOT</version>
@@ -27,7 +27,7 @@
         <dependency>
             <groupId>org.jgrapht</groupId>
             <artifactId>jgrapht-core</artifactId>
-            <version>0.9.2</version>
+            <version>1.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -78,10 +78,6 @@
                 <artifactId>maven-enforcer-plugin</artifactId>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.gmavenplus</groupId>
-                <artifactId>gmavenplus-plugin</artifactId>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
             </plugin>
@@ -127,11 +123,6 @@
         <url>https://github.com/orbisgis/Java-Network-Analyzer/issues</url>
     </issueManagement>
 
-    <ciManagement>
-        <system>Travis CI</system>
-        <url>https://travis-ci.com/orbisgis/Java-Network-Analyzer</url>
-    </ciManagement>
-
     <scm>
         <connection>scm:git:git@github.com:orbisgis/Java-Network-Analyzer.git</connection>
         <developerConnection>scm:git:git@github.com:orbisgis/Java-Network-Analyzer.git</developerConnection>
@@ -140,24 +131,11 @@
 
     <repositories>
         <repository>
-            <id>orbisgis-release</id>
-            <url>http://nexus.orbisgis.org/repository/orbisgis-release</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-        <repository>
-            <id>orbisgis-snapshot</id>
-            <url>http://nexus.orbisgis.org/repository/orbisgis-snapshot</url>
+            <id>ossrh-snapshot</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
         </repository>
     </repositories>
 </project>
