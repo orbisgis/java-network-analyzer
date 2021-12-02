@@ -4,26 +4,72 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- The Basics -->
+    <!-- Maven Coordinates -->
     <parent>
         <groupId>org.orbisgis</groupId>
         <artifactId>orbisparent</artifactId>
-        <version>1.0.4-SNAPSHOT</version>
+        <version>1.1.0</version>
     </parent>
     <artifactId>java-network-analyzer</artifactId>
-    <version>0.1.8-SNAPSHOT</version>
+    <version>0.2.0-SNAPSHOT</version>
     <packaging>bundle</packaging>
 
-    <!-- Properties -->
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.build.timestamp.format>YYYY-MM-dd</maven.build.timestamp.format>
-        <buildNumber>${maven.build.timestamp}</buildNumber>
-        <site.basedir>${project.basedir}</site.basedir>
-    </properties>
+    <!-- More Project Information -->
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>Graph theory and social network analysis algorithms implemented on JGraphT graphs.</description>
+
+    <organization>
+        <name>Lab-STICC - CNRS UMR 6285</name>
+        <url>http://www.labsticc.fr/</url>
+    </organization>
+
+    <url>http://www.orbisgis.org</url>
+
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License (LGPLV3+)</name>
+            <url>http://www.gnu.org/licenses/lgpl-3.0.html</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Erwan Bocher</name>
+            <organization>Lab-STICC - CNRS UMR 6285</organization>
+        </developer>
+        <developer>
+            <name>Adam Gouge</name>
+            <organization>IRSTV CNRS-FR-2488 (2012-2014)</organization>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:orbisgis/Java-Network-Analyzer.git</connection>
+        <developerConnection>scm:git:git@github.com:orbisgis/Java-Network-Analyzer.git</developerConnection>
+        <url>git@github.com:orbisgis/Java-Network-Analyzer.git</url>
+    </scm>
+
+    <issueManagement>
+        <system>Github</system>
+        <url>https://github.com/orbisgis/Java-Network-Analyzer/issues</url>
+    </issueManagement>
 
     <!-- Dependencies -->
+    <repositories>
+        <repository>
+            <id>oss-sonatype</id>
+            <name>oss-sonatype-snapshot</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </repository>
+        <repository>
+            <id>orbisgis-release</id>
+            <name>oss-sonatype-release</name>
+            <url>https://oss.sonatype.org/content/repositories/releases/</url>
+        </repository>
+    </repositories>
+
     <dependencies>
+        <!-- dependency version definition kept in this project until it has been updated to last version -->
         <dependency>
             <groupId>org.jgrapht</groupId>
             <artifactId>jgrapht-core</artifactId>
@@ -32,10 +78,6 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -49,7 +91,6 @@
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
-                <version>2.3.7</version>
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
@@ -61,81 +102,7 @@
                     </instructions>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>versions-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-enforcer-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-            </plugin>
         </plugins>
     </build>
 
-    <!-- More Project Information -->
-    <name>${project.groupId}:${project.artifactId}</name>
-    <description>Graph theory and social network analysis algorithms implemented on JGraphT graphs.</description>
-    <url>http://www.orbisgis.org</url>
-    <licenses>
-        <license>
-            <name>GNU Lesser General Public License (LGPLV3+)</name>
-            <url>http://www.gnu.org/licenses/lgpl-3.0.html</url>
-        </license>
-    </licenses>
-    <organization>
-        <name>Lab-STICC - CNRS UMR 6285</name>
-        <url>http://www.labsticc.fr/</url>
-    </organization>
-    <developers>
-        <developer>
-            <name>Erwan Bocher</name>
-            <organization>Lab-STICC - CNRS UMR 6285</organization>
-        </developer>
-        <developer>
-            <name>Adam Gouge</name>
-            <organization>IRSTV CNRS-FR-2488 (2012-2014)</organization>
-        </developer>
-    </developers>
-
-    <!-- Environment Settings -->
-    <issueManagement>
-        <system>Github</system>
-        <url>https://github.com/orbisgis/Java-Network-Analyzer/issues</url>
-    </issueManagement>
-
-    <scm>
-        <connection>scm:git:git@github.com:orbisgis/Java-Network-Analyzer.git</connection>
-        <developerConnection>scm:git:git@github.com:orbisgis/Java-Network-Analyzer.git</developerConnection>
-        <url>git@github.com:orbisgis/Java-Network-Analyzer.git</url>
-    </scm>
-
-    <repositories>
-        <repository>
-            <id>ossrh-snapshot</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
 </project>

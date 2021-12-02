@@ -59,13 +59,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class StrahlerTest {
 
     /**
-     * Tests the {@link DFSTest#prepareTree()} tree.
+     * Tests the {@link #prepareTree()} tree.
      *
-     * @throws NoSuchMethodException
-     * @throws InstantiationException
-     * @throws IllegalAccessException
      * @throws IllegalArgumentException
-     * @throws InvocationTargetException
      */
     @Test
     public void testStrahler() {
