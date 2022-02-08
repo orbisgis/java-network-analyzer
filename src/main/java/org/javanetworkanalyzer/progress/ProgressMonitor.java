@@ -71,8 +71,6 @@ public interface ProgressMonitor {
      * Sets the progress and returns the percentage complete.
      *
      * @param count The count.
-     *
-     * @return The percentage complete.
      */
     void setProgress(long count);
 
@@ -95,8 +93,6 @@ public interface ProgressMonitor {
      * @param count     A counter to keep track of which iteration in a loop.
      * @param startTime The System time in milliseconds when this task was
      *                  started.
-     *
-     * @return The percentage complete.
      */
     void setProgress(long count, long startTime);
 }

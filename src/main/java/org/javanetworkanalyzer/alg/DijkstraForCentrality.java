@@ -39,6 +39,7 @@
  */
 package org.javanetworkanalyzer.alg;
 
+import org.javanetworkanalyzer.analyzers.GraphAnalyzer;
 import org.javanetworkanalyzer.data.VWCent;
 import org.javanetworkanalyzer.data.WeightedPathLengthData;
 import java.util.PriorityQueue;

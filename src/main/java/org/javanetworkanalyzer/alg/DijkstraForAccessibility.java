@@ -40,6 +40,8 @@
 package org.javanetworkanalyzer.alg;
 
 import java.util.PriorityQueue;
+
+import org.javanetworkanalyzer.analyzers.AccessibilityAnalyzer;
 import org.javanetworkanalyzer.data.VAccess;
 import org.javanetworkanalyzer.model.EdgeSPT;
 import org.jgrapht.Graph;

@@ -52,11 +52,11 @@ import org.jgrapht.Graph;
  * a tree, this algorithm will return results, but they will be false.
  *
  * <p> This function is executed by calling
- * {@link #calculate(org.javanetworkanalyzer.data.VDFS)} on the tree's root
+ * calculate(org.javanetworkanalyzer.data.VDFS) on the tree's root
  * node.
  *
  * @param <E> edge
- * @see http://en.wikipedia.org/wiki/Strahler_number
+ * {@see http://en.wikipedia.org/wiki/Strahler_number}
  *
  * @author Adam Gouge
  */

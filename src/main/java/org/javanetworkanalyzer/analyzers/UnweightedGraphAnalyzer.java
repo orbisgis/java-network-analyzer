@@ -94,7 +94,7 @@ public class UnweightedGraphAnalyzer<E extends EdgeCent>
     /**
      * Calculates the number of shortest paths from startNode to every other
      * node and the lengths of these paths using a Breadth-First Search (BFS),
-     * storing them in the appropriate node info of {@link #nodeBetweenness};
+     * storing them in the appropriate node info of nodeBetweenness;
      * also updates the predecessor sets.
      *
      * @param startNode          The start node.

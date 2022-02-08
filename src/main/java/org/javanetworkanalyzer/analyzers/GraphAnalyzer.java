@@ -190,7 +190,7 @@ public abstract class GraphAnalyzer<V extends VCent, E extends EdgeCent, S exten
 
     /**
      * Given a node and its path length data calculated in
-     * {@link #calculateCentralityMeasures(int)}, this method calculates its
+     * calculateCentralityMeasures(int), this method calculates its
      * closeness centrality (or "out" closeness centrality for digraphs).
      *
      * @param node  The given node.
@@ -220,7 +220,7 @@ public abstract class GraphAnalyzer<V extends VCent, E extends EdgeCent, S exten
      * Uses the recursion formula to calculate update the dependency values of
      * startNode on every node and their contributions to the betweenness values
      * of every node except startNode. Node that all these values are contained
-     * in the appropriate {@link V} of {@link #nodeBetweenness}.
+     * in the appropriate {@link V} of nodeBetweenness.
      *
      * @param startNode The start node.
      */

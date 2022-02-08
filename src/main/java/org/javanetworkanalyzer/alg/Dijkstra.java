@@ -391,7 +391,7 @@ public class Dijkstra<V extends VDijkstra, E extends EdgeSPT>
     /**
      * Performs a Dijkstra search from each source to each target using a
      * {@link #oneToMany} search from each source.
-     * <p/>
+     *
      * Note: Using oneToMany rather than manyToOne is more efficient since we
      * don't have to create an edge-reversed graph.
      *
