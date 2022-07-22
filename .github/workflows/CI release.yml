@@ -68,22 +68,22 @@ jobs:
       - name: Export env values
         run: echo "GIT_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)" >> $GITHUB_ENV
 
-      # Make the github release from the last created tag. Write in its body the content of the changelog file.
-      - name: Make github release
-        uses: actions/create-release@v1
+      # Make the Github release from the last created tag. Write in its body the content of the changelog file.
+      - name: Make Github release
+        uses: ncipollo/release-action@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ env.GIT_TAG }}
-          release_name: ${{ env.GIT_TAG }}
-          body_path: docs/CHANGELOG.md
+          tag: ${{ env.GIT_TAG }}
+          name: ${{ env.GIT_TAG }}
+          bodyFile: "docs/CHANGELOG.md"
           draft: false
           prerelease: false
 
       # Clear the changelog file and add its header
       - name: Clear changelog
         run: |
-          echo "## Changelog for v$( mvn help:evaluate -Dexpression=project.version  | sed -n -e '/^\[.*\]/ !{ /^[0-9]/ { p; q } }' | cut -d- -f1)" > docs/CHANGELOG.md
+          echo "# Changelog for v$( mvn help:evaluate -Dexpression=project.version  | sed -n -e '/^\[.*\]/ !{ /^[0-9]/ { p; q } }' | cut -d- -f1)" > docs/CHANGELOG.md
           git commit -a -m "Empty changelog."
           git push origin master
 
