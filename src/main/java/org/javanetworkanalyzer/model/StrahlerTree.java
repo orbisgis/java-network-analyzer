@@ -64,7 +64,7 @@ public class StrahlerTree<E> extends SimpleGraph<VStrahler, E> {
     private final Map<Integer, VStrahler> nodeMap;
 
     /**
-     * @see AbstractBaseGraph
+     * @see org.jgrapht.graph.AbstractBaseGraph
      */
     public StrahlerTree(Class<? extends E> edgeClass) {
         super(edgeClass);
@@ -72,7 +72,7 @@ public class StrahlerTree<E> extends SimpleGraph<VStrahler, E> {
     }
 
     /**
-     * @see AbstractBaseGraph
+     * @see org.jgrapht.graph.AbstractBaseGraph
      */
     public StrahlerTree(EdgeFactory<VStrahler, E> ef) {
         super(ef);

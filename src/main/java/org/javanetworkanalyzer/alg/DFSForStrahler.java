@@ -56,7 +56,7 @@ import org.jgrapht.Graph;
  * node.
  *
  * @param <E> edge
- * @see http://en.wikipedia.org/wiki/Strahler_number
+ * @see "http://en.wikipedia.org/wiki/Strahler_number"
  *
  * @author Adam Gouge
  */

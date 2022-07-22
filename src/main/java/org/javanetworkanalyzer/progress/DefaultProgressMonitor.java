@@ -60,7 +60,7 @@ public class DefaultProgressMonitor implements ProgressMonitor {
     /**
      * Sets the end and instantiates a {@link ConsoleProgressBar} for this task.
      *
-     * @see ProgressMonitor#startTask(java.lang.String, long).
+     * @see ProgressMonitor#startTask(java.lang.String, long)
      */
     @Override
     public void startTask(String taskName, long end) {
@@ -74,7 +74,7 @@ public class DefaultProgressMonitor implements ProgressMonitor {
     /**
      * Does nothing.
      *
-     * @see ProgressMonitor#endTask().
+     * @see ProgressMonitor#endTask()
      */
     @Override
     public void endTask() {

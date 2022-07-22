@@ -49,7 +49,7 @@ import org.jgrapht.Graph;
 
 /**
  * An implementation of Dijkstra's algorithm which can be used to calculate
- * betweenness and closeness in a {@link GraphAnalyzer}.
+ * betweenness and closeness in a {@link org.javanetworkanalyzer.analyzers.GraphAnalyzer}.
  *
  * @author Adam Gouge
  * @param <E> edge

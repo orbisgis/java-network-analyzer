@@ -190,7 +190,7 @@ public abstract class GraphAnalyzer<V extends VCent, E extends EdgeCent, S exten
 
     /**
      * Given a node and its path length data calculated in
-     * {@link #calculateCentralityMeasures(int)}, this method calculates its
+     * {@link #calculateClosenessForNode(VCent, PathLengthData)}, this method calculates its
      * closeness centrality (or "out" closeness centrality for digraphs).
      *
      * @param node  The given node.

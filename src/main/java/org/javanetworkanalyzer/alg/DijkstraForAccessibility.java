@@ -47,7 +47,7 @@ import org.jgrapht.Graph;
 /**
  * An implementation of Dijkstra's algorithm which can be used to calculate, for
  * each vertex, the (distance to the) closest destination among several possible
- * destinations in an {@link AccessibilityAnalyzer}.
+ * destinations in an {@link org.javanetworkanalyzer.analyzers.AccessibilityAnalyzer}.
  *
  * @author Adam Gouge
  * @param <E> edge
