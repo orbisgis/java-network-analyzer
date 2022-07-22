@@ -1,3 +1,1 @@
-## Changelog for v0.4.0
-
-+ Remove orbisparent dependency
+# Changelog for v0.5.0
