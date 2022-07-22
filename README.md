@@ -27,7 +27,7 @@ or may not have weights.
 
 You can include JNA in your project thanks to Sonatype repository.
 
-Check https://search.maven.org/artifact/org.orbisgis/java-network-analyzer/0.2.0/bundle
+Check https://search.maven.org/artifact/org.orbisgis/java-network-analyzer/0.4.0/bundle
 
 To use the current snapshot add in the pom
 
@@ -44,7 +44,7 @@ and the following dependency
 ```xml
 <dependency>
     <groupId>org.orbisgis</groupId>
-    <version>0.3.0-SNAPSHOT</version>  
+    <version>0.5.0-SNAPSHOT</version>  
     <artifactId>java-network-analyzer</artifactId>
 </dependency>
 ```
