@@ -44,7 +44,7 @@ and the following dependency
 ```xml
 <dependency>
     <groupId>org.orbisgis</groupId>
-    <version>0.5.0-SNAPSHOT</version>  
+    <version>0.5.1-SNAPSHOT</version>  
     <artifactId>java-network-analyzer</artifactId>
 </dependency>
 ```
