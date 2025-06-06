@@ -78,7 +78,6 @@ public abstract class GraphPrep<V extends VId, E extends Edge<E>> {
      *
      * @return The original weighted directed graph
      *
-     * @throws NoSuchMethodException
      */
     public abstract DirectedWeightedPseudoG<V, E> weightedDirected()
             throws NoSuchMethodException;
@@ -88,7 +87,6 @@ public abstract class GraphPrep<V extends VId, E extends Edge<E>> {
      *
      * @return A weighted edge-reversed view
      *
-     * @throws NoSuchMethodException
      */
     public WeightedEdgeReversedG<V, E> weightedReversed() throws
             NoSuchMethodException {
@@ -100,7 +98,6 @@ public abstract class GraphPrep<V extends VId, E extends Edge<E>> {
      *
      * @return A weighted undirected view
      *
-     * @throws NoSuchMethodException
      */
     public UndirectedG<V, E> weightedUndirected() throws
             NoSuchMethodException {
@@ -112,7 +109,6 @@ public abstract class GraphPrep<V extends VId, E extends Edge<E>> {
      *
      * @return An unweighted directed view
      *
-     * @throws NoSuchMethodException
      */
     public DirectedG<V, E> directed()
             throws NoSuchMethodException {
@@ -124,7 +120,6 @@ public abstract class GraphPrep<V extends VId, E extends Edge<E>> {
      *
      * @return An unweighted edge-reversed view
      *
-     * @throws NoSuchMethodException
      */
     public DirectedG<V, E> reversed()
             throws NoSuchMethodException {

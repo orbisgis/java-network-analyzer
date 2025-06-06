@@ -381,8 +381,8 @@ public abstract class GraphAnalyzerTest
     /**
      * Prints the amount of time graph analysis took.
      *
-     * @param time
-     * @param analysisType
+     * @param time The time.
+     * @param analysisType analysis type
      */
     protected void printTime(double time, String analysisType) {
         LOGGER.info("({} ms) {} {} Graph Analysis",

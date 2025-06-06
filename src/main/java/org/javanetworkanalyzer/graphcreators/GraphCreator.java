@@ -141,8 +141,6 @@ public class GraphCreator<V extends VId, E extends EdgeID> {
      *
      * @return The graph.
      *
-     * @throws FileNotFoundException
-     * @throws NoSuchMethodException
      */
     public KeyedGraph<V, E> loadGraph()
             throws FileNotFoundException, NoSuchMethodException {

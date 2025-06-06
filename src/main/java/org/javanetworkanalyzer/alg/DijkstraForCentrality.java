@@ -95,7 +95,6 @@ public class DijkstraForCentrality<E extends EdgeSPT> extends Dijkstra<VWCent, E
      *
      * @param startNode
      * @param u Vertex u.
-     * @return 
      */
     @Override
     protected boolean preRelaxStep(VWCent startNode, VWCent u) {
