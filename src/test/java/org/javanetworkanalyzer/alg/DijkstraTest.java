@@ -121,7 +121,6 @@ public abstract class DijkstraTest {
      *
      * @return Distance matrix
      *
-     * @throws Exception
      */
     public Double[][] actualDistances(KeyedGraph<VDijkstra, Edge> g)
             throws Exception {

@@ -63,7 +63,6 @@ public interface ProgressMonitor {
      * Returns {@code true} if the process is canceled and should end as quickly
      * as possible.
      *
-     * @return
      */
     boolean isCancelled();
 

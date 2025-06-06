@@ -61,7 +61,6 @@ public class StrahlerTest {
     /**
      * Tests the {@link #prepareTree()} tree.
      *
-     * @throws IllegalArgumentException
      */
     @Test
     public void testStrahler() {
